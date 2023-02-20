@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-test-pure-pipe',
   templateUrl: './test-pure-pipe.component.html',
@@ -10,27 +9,12 @@ export class TestPurePipeComponent {
   numberArray: number[] = [1, 2];
 
   constructor() {
-
+    for (let i = 0; i < 100; i++) {
+      this.numberArray.push(this.getRandNumberInInterval(20, 30));
+    }
   }
 
   getRandNumberInInterval(min: number, max: number): number {
-    return Math.ceil((Math.random() * (max - min))) + min;
-  }
-  /**
-   *
-   * PErmet de calucler f et de l'afficher
-   *
-   * @param x
-   * @returns
-   */
-  calculer(x: number) {
-    console.log(x);
-    const result = this.f(x);
-    return result;
-  }
-
-  private f(x: number) {
-    /* todo complete f */
-    return 1;
+    return Math.ceil(Math.random() * (max - min)) + min;
   }
 }

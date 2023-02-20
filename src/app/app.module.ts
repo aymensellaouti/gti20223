@@ -46,6 +46,9 @@ import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { UnlessDirective } from './directives/unless.directive';
 import { RepeatDirective } from './directives/repeat.directive';
 import { TestPurePipeComponent } from './components/test-pure-pipe/test-pure-pipe.component';
+import { FxPipe } from './pipes/fx.pipe';
+import { LOGGER_PROVIDER_TOKEN } from './providerTokens/logger.provider-token';
+import { loggerServiceProviderFactory } from './providersFactory/test.factory-provider';
 
 @NgModule({
   declarations: [
@@ -84,6 +87,7 @@ import { TestPurePipeComponent } from './components/test-pure-pipe/test-pure-pip
     UnlessDirective,
     RepeatDirective,
     TestPurePipeComponent,
+    FxPipe,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,13 @@ import { TestPurePipeComponent } from './components/test-pure-pipe/test-pure-pip
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [
+    AuthInterceptorProvider,
+    {
+      provide: LOGGER_PROVIDER_TOKEN,
+      useFactory: loggerServiceProviderFactory
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
