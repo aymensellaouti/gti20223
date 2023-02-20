@@ -9,7 +9,7 @@ import { CvService } from '../services/cv.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
-  cvs: Cv[];
+  cvs: Cv[] = [];
   nbClickItem = 0;
   /*   selectedCv: Cv | null = null; */
   date = new Date();
