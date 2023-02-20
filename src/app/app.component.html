@@ -1,16 +1,16 @@
 <app-navbar></app-navbar>
 <hr>
-
-<div *appUnless="false">test</div>
-<input type="number" [(ngModel)]="nb">
-<p [ngClass]="{
+<app-test-pure-pipe></app-test-pure-pipe>
+<!-- <div *appUnless="false">test</div>
+ --><!-- <input type="number" [(ngModel)]="nb">
+ --><!-- <p [ngClass]="{
     'text-primary': isPaire,
     'text-danger': !isPaire
   }" *appRepeat="nb; let isPaire = paire">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptas
   quaerat, vitae amet
   fuga
   tempore voluptatem sit architecto ducimus omnis odit consequuntur? Natus consequatur a, hic commodi cumque officiis
-  nostrum.</p>
+  nostrum.</p> -->
 <router-outlet></router-outlet>
 <hr>
 <h2>Footer</h2>

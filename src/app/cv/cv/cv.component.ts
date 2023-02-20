@@ -34,4 +34,24 @@ export class CvComponent {
     this.toastr.info('Bienvenu dans notre CvTech');
     this.cvService.selectCv$.subscribe(() => this.nbClickItem++);
   }
+  add() {
+    let id = this.cvs.length;
+    this.cvs = [
+      ...this.cvs.map((actualCv) => ({ ...actualCv })),
+      new Cv(id++, 'aymen', 'sellaouti', 'teacher', 'as.jpg', '1234', 40),
+    ];
+  }
+  refresh() {
+    this.cvService.getCvs().subscribe({
+      next: (cvs) => {
+        this.cvs = cvs;
+      },
+      error: () => {
+        this.cvs = this.cvService.getFakeCvs();
+        this.toastr.error(`
+          Attention!! Les données sont fictives, problème avec le serveur.
+          Veuillez contacter l'admin.`);
+      },
+    });
+  }
 }

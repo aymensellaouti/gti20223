@@ -45,6 +45,7 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { UnlessDirective } from './directives/unless.directive';
 import { RepeatDirective } from './directives/repeat.directive';
+import { TestPurePipeComponent } from './components/test-pure-pipe/test-pure-pipe.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { RepeatDirective } from './directives/repeat.directive';
     TestHttpComponent,
     UnlessDirective,
     RepeatDirective,
+    TestPurePipeComponent,
   ],
   imports: [
     BrowserModule,

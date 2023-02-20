@@ -1,0 +1,9 @@
+<p>test-pure-pipe works! {{message}}</p>
+
+<input type="text" [(ngModel)]="message">
+
+<ol>
+  <li *ngFor="let element of numberArray">
+    {{element}} : {{calculer(element)}}
+  </li>
+</ol>
