@@ -9,6 +9,20 @@ export class TestPurePipeComponent {
   message = '';
   numberArray: number[] = [1, 2];
 
+  constructor() {
+
+  }
+
+  getRandNumberInInterval(min: number, max: number): number {
+    return Math.ceil((Math.random() * (max - min))) + min;
+  }
+  /**
+   *
+   * PErmet de calucler f et de l'afficher
+   *
+   * @param x
+   * @returns
+   */
   calculer(x: number) {
     console.log(x);
     const result = this.f(x);
@@ -16,6 +30,7 @@ export class TestPurePipeComponent {
   }
 
   private f(x: number) {
+    /* todo complete f */
     return 1;
   }
 }
