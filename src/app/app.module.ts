@@ -43,6 +43,7 @@ import { ItemComponent } from './cv/item/item.component';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { CvCardComponent } from './cv/cv-card/cv-card.component';
     LoginComponent,
     TestObservableComponent,
     TestHttpComponent,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,
