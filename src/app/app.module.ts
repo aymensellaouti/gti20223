@@ -44,6 +44,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { UnlessDirective } from './directives/unless.directive';
+import { RepeatDirective } from './directives/repeat.directive';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { UnlessDirective } from './directives/unless.directive';
     TestObservableComponent,
     TestHttpComponent,
     UnlessDirective,
+    RepeatDirective,
   ],
   imports: [
     BrowserModule,

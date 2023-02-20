@@ -2,7 +2,11 @@
 <hr>
 
 <div *appUnless="false">test</div>
-
+<input type="number" [(ngModel)]="nb">
+<p *appRepeat="nb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptas quaerat, vitae amet
+  fuga
+  tempore voluptatem sit architecto ducimus omnis odit consequuntur? Natus consequatur a, hic commodi cumque officiis
+  nostrum.</p>
 <router-outlet></router-outlet>
 <hr>
 <h2>Footer</h2>
