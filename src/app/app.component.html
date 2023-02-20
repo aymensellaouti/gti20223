@@ -3,7 +3,11 @@
 
 <div *appUnless="false">test</div>
 <input type="number" [(ngModel)]="nb">
-<p *appRepeat="nb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptas quaerat, vitae amet
+<p [ngClass]="{
+    'text-primary': isPaire,
+    'text-danger': !isPaire
+  }" *appRepeat="nb; let isPaire = paire">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptas
+  quaerat, vitae amet
   fuga
   tempore voluptatem sit architecto ducimus omnis odit consequuntur? Natus consequatur a, hic commodi cumque officiis
   nostrum.</p>
