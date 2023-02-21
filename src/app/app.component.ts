@@ -10,7 +10,7 @@ import { LoggerService } from './services/logger.service';
 export class AppComponent {
   nb = 2;
   title = 'Starting Advanced Topics';
-  constructor(@Inject(LOGGER_PROVIDER_TOKEN) private logger: LoggerService) {
+  constructor(private logger: LoggerService) {
     this.logger.logger('cc GTI :)');
   }
 }

@@ -4,9 +4,7 @@ import { LoggerService } from '../../services/logger.service';
 
 let n = 1;
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TodoService {
   private todos: Todo[] = [];
   constructor(private loggerService: LoggerService) {}

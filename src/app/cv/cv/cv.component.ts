@@ -3,10 +3,18 @@ import { Cv } from '../model/cv';
 import { LoggerService } from '../../services/logger.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
+import { CONSTANTES } from '../../../config/const.config';
+import { FakeCvService } from '../services/fake-cv.service';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css'],
+  providers: [
+    {
+      provide: CvService,
+      useClass: CONSTANTES.env === 'DEV' ? FakeCvService : CvService,
+    },
+  ],
 })
 export class CvComponent {
   cvs: Cv[] = [];

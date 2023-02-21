@@ -49,6 +49,8 @@ import { TestPurePipeComponent } from './components/test-pure-pipe/test-pure-pip
 import { FxPipe } from './pipes/fx.pipe';
 import { LOGGER_PROVIDER_TOKEN } from './providerTokens/logger.provider-token';
 import { loggerServiceProviderFactory } from './providersFactory/test.factory-provider';
+import { LoggerService } from './services/logger.service';
+import { TodoService } from './todo/service/todo.service';
 
 @NgModule({
   declarations: [
@@ -100,9 +102,10 @@ import { loggerServiceProviderFactory } from './providersFactory/test.factory-pr
   providers: [
     AuthInterceptorProvider,
     {
-      provide: LOGGER_PROVIDER_TOKEN,
-      useFactory: loggerServiceProviderFactory
-    }
+      provide: LoggerService,
+      useClass: LoggerService,
+    },
+    TodoService,
   ],
   bootstrap: [AppComponent],
 })
