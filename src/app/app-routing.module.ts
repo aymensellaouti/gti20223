@@ -33,9 +33,7 @@ const routes: Route[] = [
   {
     path: 'admin',
     component: AdminComponent,
-    children: [
-      { path: 'color/:defaultColor/:color', component: ColorComponent },
-    ],
+    children: [{ path: 'color/:defaultColor', component: ColorComponent }],
   },
   /*   { path: ':quelqueChose', component: SecondComponent }, */
   { path: '**', component: NF404Component },

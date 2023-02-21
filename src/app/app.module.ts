@@ -51,7 +51,9 @@ import { LOGGER_PROVIDER_TOKEN } from './providerTokens/logger.provider-token';
 import { loggerServiceProviderFactory } from './providersFactory/test.factory-provider';
 import { LoggerService } from './services/logger.service';
 import { TodoService } from './todo/service/todo.service';
+import { UUID_PROVIDER } from './providerTokens/uuid.provider-token';
 
+import {v4 as uuidV4} from 'uuid';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +108,10 @@ import { TodoService } from './todo/service/todo.service';
       useClass: LoggerService,
     },
     TodoService,
+    {
+      provide: UUID_PROVIDER,
+      useValue: uuidV4
+    }
   ],
   bootstrap: [AppComponent],
 })

@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
 import { CONSTANTES } from '../../../config/const.config';
 import { FakeCvService } from '../services/fake-cv.service';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
@@ -25,8 +26,12 @@ export class CvComponent {
   constructor(
     private logger: LoggerService,
     private toastr: ToastrService,
-    private cvService: CvService
+    private cvService: CvService,
+    private title: Title
   ) {
+    console.log(this.title.getTitle());
+    this.title.setTitle('Liste des cvs');
+
     this.cvService.getCvs().subscribe({
       next: (cvs) => {
         this.cvs = cvs;
