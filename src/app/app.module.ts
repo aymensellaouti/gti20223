@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
@@ -102,6 +103,7 @@ import { ListCvComponent } from './cv/list-cv/list-cv.component';
     ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     HttpClientModule,
+    NgxUiLoaderModule
   ],
   providers: [
     AuthInterceptorProvider,

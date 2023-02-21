@@ -15,9 +15,10 @@ export class ListCvComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.cvService.getCvs().subscribe((cvs) => {
+    /* this.cvService.getCvs().subscribe((cvs) => {
       this.cvs = cvs;
-    });
+    }); */
+    this.cvs = this.activatedRoute.snapshot.data['cvs'];
     this.cvService.selectCv$.subscribe((cv) => {
       this.router.navigate([cv.id], { relativeTo: this.activatedRoute });
     });

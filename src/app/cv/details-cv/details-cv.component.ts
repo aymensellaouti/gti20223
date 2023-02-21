@@ -31,7 +31,7 @@ export class DetailsCvComponent implements OnInit {
         this.router.navigate([APP_ROUTES.cv]);
       },
     }); */
-    this.activatedRoute.params.subscribe((params) => {
+    /* this.activatedRoute.params.subscribe((params) => {
       this.cvService.getCvById(params['id']).subscribe({
         next: (cv) => {
           this.cv = cv;
@@ -40,6 +40,14 @@ export class DetailsCvComponent implements OnInit {
           this.router.navigate([APP_ROUTES.cv]);
         },
       });
+    }); */
+    this.activatedRoute.data.subscribe({
+      next: ({cv}) => {
+        this.cv = cv;
+      },
+      error: (e) => {
+        this.router.navigate([APP_ROUTES.cv]);
+      }
     });
   }
   deleteCv(cv: Cv) {
