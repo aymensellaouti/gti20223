@@ -20,27 +20,28 @@ export class TestObservableComponent implements OnDestroy {
         observer.next(i--);
       }, 1000);
     });
-    this.subscriptions.push(this.firstObservable$.subscribe((val) => {
+    /*     this.subscriptions.push( */
+    this.firstObservable$.subscribe((val) => {
       console.log(val);
-    }));
-    setTimeout(
-      () => {
-          this.subscriptions.push(
-              this.firstObservable$
-              .pipe(
-        map( element => element  * 3),
-        filter( element => element % 2 == 0)
-              )
-              .subscribe({
-        next: (value) => this.toaster.info('' + value),
-        complete: () => this.toaster.success('Fin du Game :)')
-              }
-              ));
-        }, 1500);
+    });
+    /*     ); */
+    /*     setTimeout(() => {
+      this.subscriptions.push(
+        this.firstObservable$
+          .pipe(
+            map((element) => element * 3),
+            filter((element) => element % 2 == 0)
+          )
+          .subscribe({
+            next: (value) => this.toaster.info('' + value),
+            complete: () => this.toaster.success('Fin du Game :)'),
+          })
+      );
+    }, 1500); */
   }
   ngOnDestroy(): void {
-    this.subscriptions.forEach(
-      (subscription: Subscription) => subscription.unsubscribe()
-    )
+    this.subscriptions.forEach((subscription: Subscription) =>
+      subscription.unsubscribe()
+    );
   }
 }
