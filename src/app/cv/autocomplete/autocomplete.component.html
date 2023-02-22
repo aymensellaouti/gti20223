@@ -1,0 +1,6 @@
+<input [(ngModel)]='search' type="text" class="form-control" #searchInput>
+<ol class="list-group">
+  <li (click)="navigate(cv)" *ngFor="let cv of cvs$ | async" class="list-group-item">
+    <app-item [cv]="cv"></app-item>
+  </li>
+</ol>

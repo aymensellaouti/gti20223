@@ -57,6 +57,7 @@ import { UUID_PROVIDER } from './providerTokens/uuid.provider-token';
 import {v4 as uuidV4} from 'uuid';
 import { ListCvComponent } from './cv/list-cv/list-cv.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +98,7 @@ import { SliderComponent } from './components/slider/slider.component';
     FxPipe,
     ListCvComponent,
     SliderComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,

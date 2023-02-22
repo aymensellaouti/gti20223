@@ -6,6 +6,7 @@ import { CvService } from '../services/cv.service';
 import { CONSTANTES } from '../../../config/const.config';
 import { FakeCvService } from '../services/fake-cv.service';
 import { Title } from '@angular/platform-browser';
+import { catchError, of, Observable } from 'rxjs';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
@@ -19,6 +20,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class CvComponent {
   cvs: Cv[] = [];
+  cvs$: Observable<Cv[]>;
   nbClickItem = 0;
   /*   selectedCv: Cv | null = null; */
   date = new Date();
@@ -32,29 +34,24 @@ export class CvComponent {
     console.log(this.title.getTitle());
     this.title.setTitle('Liste des cvs');
 
-    this.cvService.getCvs().subscribe({
-      next: (cvs) => {
-        this.cvs = cvs;
-      },
-      error: () => {
-        this.cvs = this.cvService.getFakeCvs();
+    this.cvs$ = this.cvService.getCvs().pipe(
+      catchError((e) => {
         this.toastr.error(`
           Attention!! Les données sont fictives, problème avec le serveur.
           Veuillez contacter l'admin.`);
-      },
-    });
-    this.logger.logger('je suis le cvComponent');
-    this.toastr.info('Bienvenu dans notre CvTech');
+        return of(this.cvService.getFakeCvs());
+      })
+    );
     this.cvService.selectCv$.subscribe(() => this.nbClickItem++);
   }
-  add() {
+  /*   add() {
     let id = this.cvs.length;
     this.cvs = [
       ...this.cvs.map((actualCv) => ({ ...actualCv })),
       new Cv(id++, 'aymen', 'sellaouti', 'teacher', 'as.jpg', '1234', 40),
     ];
-  }
-  refresh() {
+  } */
+  /* refresh() {
     this.cvService.getCvs().subscribe({
       next: (cvs) => {
         this.cvs = cvs;
@@ -66,5 +63,5 @@ export class CvComponent {
           Veuillez contacter l'admin.`);
       },
     });
-  }
+  } */
 }

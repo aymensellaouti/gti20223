@@ -1,4 +1,5 @@
 <div class="row">
+  <app-autocomplete></app-autocomplete>
   <!--   <button (click)="refresh()" class="btn btn-danger">
     refresh
   </button>
@@ -12,7 +13,7 @@
         {{1 | btc2usd}} / {{1 | btc2usd: false}} /
       </pre> -->
     </div>
-    <app-list [cvs]="cvs"></app-list>
+    <app-list [cvs]="cvs$ | async"></app-list>
   </div>
   <div class="col">
     <app-cv-card></app-cv-card>
