@@ -24,6 +24,13 @@ export class TestObservableComponent implements OnDestroy {
     this.firstObservable$.subscribe((val) => {
       console.log(val);
     });
+    this.firstObservable$
+    .pipe(
+      map(element => element * 3)
+    )
+    .subscribe((val) => {
+      console.log(val);
+    });
     /*     ); */
     /*     setTimeout(() => {
       this.subscriptions.push(

@@ -56,6 +56,7 @@ import { UUID_PROVIDER } from './providerTokens/uuid.provider-token';
 
 import {v4 as uuidV4} from 'uuid';
 import { ListCvComponent } from './cv/list-cv/list-cv.component';
+import { SliderComponent } from './components/slider/slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +96,7 @@ import { ListCvComponent } from './cv/list-cv/list-cv.component';
     TestPurePipeComponent,
     FxPipe,
     ListCvComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
