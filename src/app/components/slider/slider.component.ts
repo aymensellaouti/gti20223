@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, timer, map } from 'rxjs';
+import { Observable, timer, map, take } from 'rxjs';
 
 @Component({
   selector: 'app-slider',
@@ -22,7 +22,8 @@ export class SliderComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.imagesSlider$ = timer(0, this.timer).pipe(
-      map((index) => this.paths[index % this.paths.length])
+      map((index) => this.paths[index % this.paths.length]),
+      take(3)
     );
   }
 }
