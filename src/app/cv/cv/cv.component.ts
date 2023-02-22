@@ -6,7 +6,7 @@ import { CvService } from '../services/cv.service';
 import { CONSTANTES } from '../../../config/const.config';
 import { FakeCvService } from '../services/fake-cv.service';
 import { Title } from '@angular/platform-browser';
-import { catchError, of, Observable } from 'rxjs';
+import { catchError, of, Observable, filter, map, shareReplay } from 'rxjs';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
@@ -21,6 +21,8 @@ import { catchError, of, Observable } from 'rxjs';
 export class CvComponent {
   cvs: Cv[] = [];
   cvs$: Observable<Cv[]>;
+  juniors$: Observable<Cv[]>;
+  seniors$: Observable<Cv[]>;
   nbClickItem = 0;
   /*   selectedCv: Cv | null = null; */
   date = new Date();
@@ -35,12 +37,19 @@ export class CvComponent {
     this.title.setTitle('Liste des cvs');
 
     this.cvs$ = this.cvService.getCvs().pipe(
+      /*       shareReplay(), */
       catchError((e) => {
         this.toastr.error(`
           Attention!! Les données sont fictives, problème avec le serveur.
           Veuillez contacter l'admin.`);
         return of(this.cvService.getFakeCvs());
       })
+    );
+    this.juniors$ = this.cvs$.pipe(
+      map((cvs) => cvs.filter((cv) => cv.age < 40))
+    );
+    this.seniors$ = this.cvs$.pipe(
+      map((cvs) => cvs.filter((cv) => cv.age >= 40))
     );
     this.cvService.selectCv$.subscribe(() => this.nbClickItem++);
   }
