@@ -24,7 +24,7 @@ export class CanLeaveTodoGuard implements CanActivate, CanDeactivate<unknown> {
     return true;
   }
   canDeactivate(
-    component: TodoComponent,
+    todoComponent: TodoComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
@@ -33,6 +33,9 @@ export class CanLeaveTodoGuard implements CanActivate, CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    if (todoComponent.todo.content.trim().length || todoComponent.todo.name.trim().length ) {
+      return confirm('Etes vous sur de vouloir sortir, le formulaire contient des infos');
+    }
     return true;
   }
 }
