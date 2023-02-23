@@ -8,3 +8,6 @@
 <p>
   Le contenu de l'input est: {{message}}
 </p>
+
+<app-on-push [user]="user" [name]="user.email"></app-on-push>
+<input [(ngModel)]="user.email" type="text" class="form-control">

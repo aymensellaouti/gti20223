@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-first',
@@ -9,6 +10,7 @@ export class FirstComponent {
   name = 'aymen';
   message = '';
   isHidden = false;
+  user!: User;
   changeMessage(newMessage: string) {
     this.message = newMessage;
   }
@@ -19,5 +21,7 @@ export class FirstComponent {
     /*     setInterval(() => {
 
     }, 1000); */
+    this.user = new User(1, 'aymen');
+    
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ApplicationRef, Component, Inject } from '@angular/core';
 import { LOGGER_PROVIDER_TOKEN } from './providerTokens/logger.provider-token';
 import { LoggerService } from './services/logger.service';
 import {
@@ -21,7 +21,8 @@ export class AppComponent {
   constructor(
     private logger: LoggerService,
     private router: Router,
-    private ngxService: NgxUiLoaderService
+    private ngxService: NgxUiLoaderService,
+    public appRef: ApplicationRef
   ) {
     this.logger.logger('cc GTI :)');
     /*     this.router.events.subscribe((event) => {

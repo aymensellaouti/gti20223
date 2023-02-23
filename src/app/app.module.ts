@@ -45,6 +45,7 @@ import { UUID_PROVIDER } from './providerTokens/uuid.provider-token';
 
 import { v4 as uuidV4 } from 'uuid';
 import { SliderComponent } from './components/slider/slider.component';
+import { OnPushComponent } from './changeDetection/on-push/on-push.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { SliderComponent } from './components/slider/slider.component';
     TestPurePipeComponent,
     FxPipe,
     SliderComponent,
+    OnPushComponent,
   ],
   imports: [
     BrowserModule,
