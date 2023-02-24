@@ -1,4 +1,4 @@
-<ol class="list-group">
+<ol class="list-group" data-testid="listcvs">
   <li *ngFor="let cv of cvs ;trackBy:trackCv; let isOdd = odd;" [ngClass]="{
       'list-group-item-primary': isOdd,
       'list-group-item-secondary': !isOdd
